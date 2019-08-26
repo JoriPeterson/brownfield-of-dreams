@@ -9,7 +9,8 @@ class TutorialsController < ApplicationController
 	end
 
   def show
-    tutorial = Tutorial.find(params[:id])
+    tutorial = Tutorial.includes(:videos).find(params[:id])
+		redirect_to new_video_path(tutorial) if tutorial.videos.empty?
     @facade = TutorialFacade.new(tutorial, params[:video_id])
   end
 end
