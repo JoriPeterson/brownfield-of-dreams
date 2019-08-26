@@ -12,4 +12,8 @@ RSpec.describe Video, type: :model do
 		it {should have_many :user_videos}
     it {should have_many(:users).through(:user_videos)}
 	end
+
+	it 'Position cannot by nil' do
+		expect(Video.where(position: nil).empty?).to eq(true)
+	end
 end
