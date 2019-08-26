@@ -15,9 +15,10 @@ describe 'An admin user can add tutorials' do
     fill_in 'tutorial[title]', with: "How to Active Record"
     fill_in 'tutorial[description]', with: "Like a boss"
     fill_in 'tutorial[thumbnail]', with: "https://i.ytimg.com/vi/qMkRHW9zE1c/hqdefault.jpg"
+
     click_on "Save"
 
     expect(page).to have_content("Successfully created tutorial.")
-    expect(current_path).to eq(tutorial_path(Tutorial.last))
+    expect(current_path).to eq(new_admin_tutorial_video_path(Tutorial.last))
   end
 end
