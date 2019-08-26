@@ -5,5 +5,4 @@ class Tutorial < ApplicationRecord
 
 	validates_presence_of :title
 	validates_presence_of :description
-	validates_presence_of :playlist_id
 end
