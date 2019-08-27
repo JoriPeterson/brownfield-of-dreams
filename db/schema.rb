@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_184503) do
     t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "registered", default: false
+    t.string "registered"
     t.index ["email"], name: "index_users_on_email"
   end
 
