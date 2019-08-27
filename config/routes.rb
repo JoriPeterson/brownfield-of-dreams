@@ -48,4 +48,8 @@ Rails.application.routes.draw do
 
 	get 'auth/github', as: 'github_login'
 	get 'auth/github/callback', to: 'github/sessions#create'
+
+	get 'activate', to: 'activation#create', as: :send_registration_email
+
+	get 'register/:id', to: 'register#create', as: :activate_user
 end
