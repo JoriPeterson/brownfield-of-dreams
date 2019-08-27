@@ -8,11 +8,12 @@ class Admin::TutorialsController < Admin::BaseController
       tutorial = Tutorial.create(tutorial_params)
 
       flash[:success] = "Successfully created tutorial."
+      redirect_to tutorial_path(tutorial.id)
     rescue
       flash[:error] = "Unable to create tutorial."
+     redirect_to new_admin_tutorial_path
     end
 
-    redirect_to tutorial_path(tutorial.id)
   end
 
   def new
