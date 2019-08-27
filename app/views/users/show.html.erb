@@ -3,7 +3,7 @@
 
   <%= button_to 'Log Out', logout_path, method: 'delete', class: "btn btn-primary mb1 bg-teal" %>
 
-	<% if current_user.registered %>
+	<% if current_user.registered == "true" %>
     <h3>Status: Active</h3>
   <% else %>
 		<h3>This account has not yet been activated. Please check your email.</h3>
