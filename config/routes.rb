@@ -40,7 +40,7 @@ Rails.application.routes.draw do
 	# resources :friendships, only: [:create]
 	post '/friendships/:id', to: 'friendships#create', as: :friendships
 
-  resources :tutorials, only: [:show, :index] do
+  resources :tutorials, only: [:show] do
     resources :videos, only: [:show, :index]
   end
 

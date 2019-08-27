@@ -1,7 +1,13 @@
 class Admin::VideosController < Admin::BaseController
-  def edit
+
+	def new
+		@tutoral = Tutorial.find(params[:tutorial_id])
+		@video = Video.new
+	end
+
+	def edit
     @video = Video.find(params[:video_id])
-  end
+	end
 
   def update
     video = Video.find(params[:id])
@@ -24,7 +30,7 @@ class Admin::VideosController < Admin::BaseController
   end
 
   private
-  
+
   def video_params
     params.permit(:position)
   end
