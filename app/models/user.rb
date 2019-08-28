@@ -32,4 +32,10 @@ class User < ApplicationRecord
     Tutorial.includes(videos: :user_videos)
       .where(user_videos: {user_id: self.id})
   end
+
+  def self.find_by_github_handle(handle)
+    joins(:user_credentials)
+      .where(user_credentials: {website: "github"})
+      .where(user_credentials: {user_id: handle})
+  end
 end
