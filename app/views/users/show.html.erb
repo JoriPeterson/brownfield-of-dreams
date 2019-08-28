@@ -3,6 +3,8 @@
 
   <%= button_to 'Log Out', logout_path, method: 'delete', class: "btn btn-primary mb1 bg-teal" %>
 
+  <%= button_to 'Send an Invite', new_invite_path, method: 'get', class: "btn btn-primary mb1 bg-teal" %>
+
 	<% if current_user.registered == "true" %>
     <h3>Status: Active</h3>
   <% else %>
