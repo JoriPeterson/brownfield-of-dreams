@@ -4,7 +4,9 @@ class ActivateMailer < ApplicationMailer
 		mail(to: current_user.email, subject: "Activate Your Brownfield Account")
 	end
 
-	def invite(email)
-		mail(to: email, subject: "Invite to Brownfield")
+	def invite(user, handle)
+		@user = user
+		@inviter_handle = handle
+		mail(to: user[:email], subject: "Invite to Brownfield")
 	end
 end

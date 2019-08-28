@@ -38,4 +38,8 @@ class User < ApplicationRecord
       .where(user_credentials: {website: "github"})
       .where(user_credentials: {user_id: handle})
   end
+
+  def github_handle
+    user_credentials.where(website: "github")[0].nickname
+  end
 end
