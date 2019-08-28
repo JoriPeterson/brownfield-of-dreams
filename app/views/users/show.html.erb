@@ -5,12 +5,8 @@
 
   <%= button_to 'Send an Invite', new_invite_path, method: 'get', class: "btn btn-primary mb1 bg-teal" %>
 
-	<% if current_user.registered == "true" %>
-    <h3>Status: Active</h3>
-  <% else %>
-		<h3>This account has not yet been activated. Please check your email.</h3>
-	<% end %>
-
+	<h3><%= facade.active_message %></h3>
+  
   <h3>Account Details</h3>
     <ul>
       <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>

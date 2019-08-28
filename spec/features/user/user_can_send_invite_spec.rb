@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "As a registered user" do
+describe "As a registered user", :vcr do
   before :each do
     user = create(:user)
 
@@ -23,7 +23,7 @@ describe "As a registered user" do
   end
 
   it "cannot send if github handle is not valid" do
-    fill_in "Github Handle", with: "purple rain"
+    fill_in "Github Handle", with: "purple_rain"
     click_on "Send Invite"
 
     expect(current_path).to eq(dashboard_path)

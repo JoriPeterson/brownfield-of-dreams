@@ -6,6 +6,14 @@ class DashboardFacade
 		@token = current_user.token("github")
 	end
 
+  def active_message
+    if @current_user.registered == "true"
+      "Status: Active"
+    else
+      "This account has not yet been activated. Please check your email."
+    end
+  end
+
   def repositories
     @repositories ||= repository_data[0..4].map {|data| Repository.new(data)}
   end
