@@ -1,1 +1,3 @@
-Visit <%= link_to "here", ENV["LOCAL_URL"] + "register" %> to register an account %> to register an account
+Hello <%= @user[:login]%>,
+
+<%= @inviter_handle %> has invited you to join Brownfield. You can create an account <%= link_to "here", ENV["LOCAL_URL"] + "/register" %>.
