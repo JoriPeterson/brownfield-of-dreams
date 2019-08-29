@@ -1,9 +1,4 @@
 class Admin::TutorialsController < Admin::BaseController
-
-  def new
-    @tutorial = Tutorial.new
-  end
-
   def edit
     @tutorial = Tutorial.find(params[:id])
   end
@@ -17,6 +12,7 @@ class Admin::TutorialsController < Admin::BaseController
       flash[:error] = "Unable to create tutorial."
      redirect_to new_admin_tutorial_path
     end
+  end
 
   def new
     @tutorial = Tutorial.new
