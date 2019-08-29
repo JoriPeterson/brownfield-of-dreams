@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 			redirect_to send_registration_email_path
     else
       flash[:error] = 'Username already exists'
-      render :new
+      redirect_to new_user_path
     end
   end
 

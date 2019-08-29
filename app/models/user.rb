@@ -36,7 +36,7 @@ class User < ApplicationRecord
   def self.find_by_github_handle(handle)
     joins(:user_credentials)
       .where(user_credentials: {website: "github"})
-      .where(user_credentials: {user_id: handle})
+      .where(user_credentials: {nickname: handle})
   end
 
   def github_handle
