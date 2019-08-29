@@ -3,14 +3,19 @@ class InviteController < ApplicationController
   end
 
   def create
-    user = find_github_user(current_user.token("github"), params[:"Github Handle"])
-    if user.keys.include?(:message) && user[:message] == "Not Found"
-      flash[:error] = "Github user not found!"
-    elsif user[:email].nil?
-      flash[:error] = "The Github user you selected doesn't have an email address associated with their account."
+    my_github_handle = current_user.github_handle
+    if my_github_handle.nil?
+      flash[:error] = "You must be connected to GitHub to invite new users"
     else
-      flash[:success] = "Successfully sent invite!"
-      ActivateMailer.invite(user, current_user.github_handle).deliver_now
+      user = find_github_user(current_user.token("github"), params[:"Github Handle"])
+      if user.keys.include?(:message) && user[:message] == "Not Found"
+        flash[:error] = "Github user not found!"
+      elsif user[:email].nil?
+        flash[:error] = "The Github user you selected doesn't have an email address associated with their account."
+      else
+        flash[:success] = "Successfully sent invite!"
+        ActivateMailer.invite(user, my_github_handle).deliver_now
+      end
     end
     redirect_to dashboard_path
   end
