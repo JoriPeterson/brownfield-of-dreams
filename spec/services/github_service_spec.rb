@@ -23,7 +23,7 @@ describe GithubService do
     it "returns followers", :vcr do
       search = @github_service.follower_data
       expect(search).to be_a Array
-      expect(search.count).to eq 4
+      expect(search.count).to eq 5
       expect(search[0]).to be_an Hash
       follower_data = search[0]
 
@@ -33,7 +33,7 @@ describe GithubService do
 		it "returns following", :vcr do
 			search = @github_service.following_data
 			expect(search).to be_an Array
-			expect(search.count).to eq 4
+			expect(search.count).to eq 5
 			expect(search[0]).to be_a Hash
 			following_data = search[0]
 

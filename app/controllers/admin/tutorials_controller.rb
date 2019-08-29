@@ -17,6 +17,9 @@ class Admin::TutorialsController < Admin::BaseController
       flash[:error] = "Unable to create tutorial."
      redirect_to new_admin_tutorial_path
     end
+
+  def new
+    @tutorial = Tutorial.new
   end
 
   def update
