@@ -1,4 +1,9 @@
 class Admin::TutorialsController < Admin::BaseController
+
+  def new
+    @tutorial = Tutorial.new
+  end
+
   def edit
     @tutorial = Tutorial.find(params[:id])
   end
@@ -6,18 +11,12 @@ class Admin::TutorialsController < Admin::BaseController
   def create
     begin
       tutorial = Tutorial.create(tutorial_params)
-
       flash[:success] = "Successfully created tutorial."
       redirect_to tutorial_path(tutorial.id)
     rescue
       flash[:error] = "Unable to create tutorial."
      redirect_to new_admin_tutorial_path
     end
-
-  end
-
-  def new
-    @tutorial = Tutorial.new
   end
 
   def update
@@ -26,6 +25,12 @@ class Admin::TutorialsController < Admin::BaseController
       flash[:success] = "#{tutorial.title} tagged!"
     end
     redirect_to edit_admin_tutorial_path(tutorial)
+  end
+
+  def destroy
+    tutorial = Tutorial.find(params[:id])
+    tutorial.destroy
+    redirect_to admin_dashboard_path
   end
 
   private
