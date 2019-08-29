@@ -30,4 +30,30 @@ RSpec.describe User, type: :model do
       expect(admin.admin?).to be_truthy
     end
   end
+
+  describe 'methods' do
+    it 'methods' do
+      user_1 = create(:user)
+      user_2 = create(:user)
+      user_2.user_credentials.create!(nickname: 'jake0miller', website: 'github', token: '1')
+      follower = Follower.new({login: 'jake0miller', html_url: 'fake'})
+
+      expect(user_1.friendable?(follower)).to eq(true)
+
+      expect(user_2.token('github')).to eq('1')
+
+      user_1.add_credential('github', {"credentials" => {"token" => '2'}, "info" => {"nickname" => 'jori'}})
+
+      expect(user_1.token('github')).to eq('2')
+
+      tutorial = create(:tutorial)
+      video = create(:video)
+      video.update_attributes(tutorial_id: tutorial.id)
+      user_1.user_videos.create!(video_id: video.id)
+
+      expect(user_1.bookmarks.first).to eq(tutorial)
+      expect(user_1.github_handle).to eq('jori')
+      expect(User.find_by_github_handle('jake0miller')[0]).to eq(user_2)
+    end
+  end
 end
