@@ -32,7 +32,7 @@ module PersonalProject
   end
 end
 
-module YouveChangedV2
+module Brownfield
   class Application < Rails::Application
     config.action_mailer.delivery_method = :smtp
 
