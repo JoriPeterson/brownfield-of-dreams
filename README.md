@@ -23,8 +23,6 @@ The technical learning goals fo this project were API consumption, implementing 
 
 ### Initial Setup
 
-First you'll need to setup an API key with YouTube and have it defined within `ENV['YOUTUBE_API_KEY']`. There will be one failing spec if you don't have this set up.
-
 Clone down the repo
 ```
 $ git clone
@@ -49,6 +47,12 @@ $ bundle exec rake db:migrate
 $ bundle exec rake db:seed
 $	bundle exec rake video_position:remove_nil
 ```
+
+You'll need to setup API keys with YouTube and GitHub have it defined within:
+
+YOUTUBE_API_KEY: `ENV['YOUTUBE_API_KEY']`
+GITHUB_API_KEY: `ENV['GITHUB_API_KEY']`
+GITHUB_SECRET: `ENV['GITHUB_SECRET']`
 
 ### Running Tests
 
