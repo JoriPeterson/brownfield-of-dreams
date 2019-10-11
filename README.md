@@ -6,6 +6,16 @@ This is a Ruby on Rails application used to organize YouTube content used for on
 
 A visitor is able to see all of the content on the application but in order to bookmark a segment they will need to register. Once registered a user can bookmark any of the segments in a tutorial page.
 
+
+### Learning Goals
+
+Upon starting this project, Brownfield of Dreams was a partially built repository full of technical debt that we had to try to find and eliminate. We were also asked to build new features on top of code that contained bugs, and were asked to fix the bugs before we were able to deploy.
+
+The main learning goal of Brownfield was to teach us empathy towards past and future developers. We were to decide what had to be fixed in the limited time constraint given.
+
+The technical learning goals fo this project were API consumption, implementing and testing OAuth, and implementing VCR and Webmock for testing API services. Design patterns and principles of OOP were also strongly enforced.
+
+
 ### Project Board
 
 [Click Here to see the Brownfield of Dreams Project Board](https://github.com/Jake0Miller/brownfield-of-dreams/projects/1)
